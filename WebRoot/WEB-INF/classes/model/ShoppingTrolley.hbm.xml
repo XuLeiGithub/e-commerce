@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.ShoppingTrolley" table="shoppingTrolley" schema="dbo" catalog="ecommerce">
+		<id name="id" type="int">
+			<column name="id"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="goodsId" type="int">
+			<column name="goodsId"></column>
+		</property>
+		<property name="num" type="int">
+			<column name="num"></column>
+		</property>
+		<property name="account" type="java.lang.String">
+			<column name="account"></column>
+		</property>
+	</class>
+</hibernate-mapping> 

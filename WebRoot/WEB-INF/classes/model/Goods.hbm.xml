@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+	<class name="model.Goods" table="goods" schema="dbo" catalog="ecommerce">
+		<id name="id" type="int">
+			<column name="id"></column>
+			<generator class="identity"></generator>
+		</id>
+		<property name="name" type="java.lang.String">
+			<column name="name"></column>
+		</property>
+		<property name="picture" type="java.lang.String">
+			<column name="picture"></column>
+		</property>
+		<property name="content" type="java.lang.String">
+			<column name="content"></column>
+		</property>
+		<property name="marketPrice" type="float">
+			<column name="marketPrice"></column>
+		</property>
+		<property name="memberPrice" type="float">
+			<column name="memberPrice"></column>
+		</property>
+	</class>
+</hibernate-mapping>    

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+		<action name="login" class="action.UserAction" method="login">
+			<result name="success">/index.jsp</result>
+			<result name="error">/loginError.jsp</result>
+		</action>
+		<action name="logout" class="action.UserAction" method="logout">
+			<result name="success">/login.jsp</result>
+		</action>
+		<action name="register" class="action.UserAction" method="register">
+			<result name="success">/register.jsp</result>
+		</action>
+		<action name="pageingGoods" class="action.GoodsAction" method="pagination">
+			<result name="success">/listGoods.jsp</result>
+		</action>
+		<action name="goodsDetail" class="action.GoodsAction" method="watchGoodsDetail">
+			<result name="success">/goodsDetail.jsp</result>
+		</action>
+		<action name="addGoods" class="action.GoodsAction" method="addGoods">
+			<result name="success">/addGoods.jsp</result>
+		</action>
+		<action name="deleteGoods" class="action.GoodsAction" method="deleteGoods">
+			<result name="success" type="redirectAction">pageingGoods.action?page=${page}</result>
+		</action>
+		<action name="inUpdate" class="action.GoodsAction" method="inUpdate">
+			<result name="success">/updateGoods.jsp</result>
+		</action>
+		<action name="updateGoods" class="action.GoodsAction" method="updateGoods">
+			<result name="success">/updateGoods.jsp</result>
+		</action>
+		<action name="addShopping" class="action.ShoppingTrolleyAction" method="addShoppingTrolley">
+			<result name="success" type="redirectAction">
+				<param name="actionName">goodsDetail</param>
+				<param name="page">${page}</param>
+				<param name="goods.id">${shoppingTrolley.goodsId}</param>
+				<param name="addShoppingStatus">1</param>
+			</result>
+		</action>
+		<action name="listShopping" class="action.ShoppingTrolleyAction" method="listShopping">
+			<result name="success">/listShoppingTrolley.jsp</result>
+		</action>
+		<action name="deleteShopping" class="action.ShoppingTrolleyAction" method="deleteShopping">
+			<result name="success" type="redirectAction">listShopping</result>
+		</action>
+		<action name="addOrderForm" class="action.OrderFormAction" method="addOrderForm">
+			<result name="success" type="redirectAction">listShopping?buyStatus=1</result>
+		</action>
+		<action name="listOrderForm" class="action.OrderFormAction" method="listOrderForm">
+			<result name="success">/listOrderForm.jsp</result>
+		</action>
+		<action name="deleteOrderForm" class="action.OrderFormAction" method="deleteOrderForm">
+			<result name="success" type="redirectAction">listOrderForm</result>
+		</action>
+	</package>
+</struts>
